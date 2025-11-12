@@ -6,20 +6,21 @@
     <title>Document</title>
     <style>
         header {
-            background-image: url("MRphy.png");
-    
-    
+            
+    background-color:rgb(7, 154, 203) ;
+    display: flex;
     
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100px;
     overflow: hidden;
 
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 200px;
             overflow: hidden;
         }
+        /*background-image: url("MRphy.png");*/
         span {
             font-size: 100px;
             color: #d5eb0b;
@@ -49,7 +50,85 @@ h1 span:nth-child(2) {
         }
         h1 span:nth-child(6) {
             animation-delay: 0.6s;
+        } 
+        #3 {
+            font-size: 100px;
+            color: #000000;
+            font-family: 'Arial';
+            text-transform: uppercase;
+            display: inline-block;
+            transform: rotateY(0deg);
+            transition: 1s;
+            animation: bounce 0.4s ease infinite alternate;
+            position: relative; /* Added this to allow 'top' property */
         }
+.site-footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+    direction: rtl;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ==================
+   1. تأثير التكبير على الاسم
+   ================== */
+.footer-owner-name {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #3498db;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+    display: inline-block; 
+}
+
+.footer-owner-name:hover {
+    transform: scale(1.08); /* تكبير الاسم */
+}
+
+/* ==================
+   2. تأثير التكبير على الرقم
+   ================== */
+.footer-contact-info a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+    display: inline-block;
+    margin: 0 10px; /* فصله عن الأيقونات */
+}
+
+.footer-contact-info a:hover {
+    color: #2ecc71; /* تغيير لون الرقم */
+    transform: scale(1.08); /* تكبير الرقم */
+}
+
+/* ==================
+   3. تأثير التكبير على أيقونات التواصل الاجتماعي
+   ================== */
+.social-links a {
+    color: #0cadd6;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.8em;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+    display: inline-block; 
+}
+
+.social-links a:hover {
+    color: #3498db;
+    transform: scale(1.3); /* تكبير الأيقونة بشكل أكبر */
+}
+
+/* نمط حقوق النشر */
+.footer-copy {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #34495e;
+    font-size: 0.9em;
+    color: #95a5a6;
+}
         
         @keyframes bounce {
             100% {
@@ -68,7 +147,7 @@ h1 span:nth-child(2) {
 </head>
 <body>
     <header>
-        /*  Physics*/
+        
     <h1>
         <span>P</span>
         <span>h</span>
@@ -78,13 +157,44 @@ h1 span:nth-child(2) {
         <span>c</span>
         <span>s</span>
     </h1>
-     <h3 id="3">
+     <h1 id="3">
         لا ابرح حتي ابلغ في
-    </h3>
-    <h1 id="1"> 
-        الفزياء
     </h1>
+    
+    
     </header>
-   
+   <main>
+        <img src="MRphy.png" alt="Physics Image" style="width:100%; height:auto; align-items: center;">
+    </main>
+    
+<footer class="site-footer">
+
+    <div style="margin-bottom: 20px;">
+
+        <div class="footer-owner-name">
+         
+            [creat by : Abdullah Zayed]
+        </div>
+
+        <div class="footer-contact-info" style="display: inline-block;">
+            <a href="tel:+01066801994" title="اتصل بي مباشرة">
+                
+                +01066801994
+            </a>
+        </div>
+
+        <div class="social-links" style="display: inline-block;">
+            <a href="https://www.facebook.com/bdallhsbhyzayd?locale=ar_AR" ><img src="facebook.png" alt="facebook" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"></a>
+            <a href="https://www.facebook.com/bdallhsbhyzayd?locale=ar_AR" ><img src="whatsapp.png" alt="whatsapp" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"></a>
+            
+            
+        </div>
+    </div>
+
+    <div class="footer-copy">
+        &copy; 2026 - جميع الحقوق محفوظة.
+    </div>
+
+</footer>
 </body>
 </html>
