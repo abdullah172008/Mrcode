@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.mohamed Ibrahim</title>
+    <title>Mr.Mohamed Ibrahim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         header {
@@ -198,6 +198,117 @@ h1 span:nth-child(2) {
 .header-nav {
   display: flex; /* عرض العناصر في صف واحد */
 }
+/* #m{ 
+    text-align: center;
+    font-size: 50px;
+    color: #10eb38;
+    font-family: 'Arial';
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    position: relative; /* Added this to allow 'top' property */
+
+ /*#h{ 
+    text-align: center;
+    font-size: 30px;
+    color: #f80101;
+    font-family: 'Arial';
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    position: relative; /* Added this to allow 'top' property */
+
+/* 1. الحاوية الجديدة: المسؤولة عن التوسيط والتراص العمودي */
+.center-wrapper {
+    /* تفعيل Flexbox للتوسيط */
+    display: flex;
+    /* توجيه العناصر للتراص عمودياً (M ثم H) */
+    flex-direction: column; 
+    /* توسيط العناصر أفقياً داخل الحاوية */
+    align-items: center; 
+    /* جعل الحاوية تأخذ عرض الصفحة بالكامل */
+    width: 100%;
+    /* إضافة مسافة علوية (Margin) للفصل عن محتوى الصفحة */
+    margin: 50px auto; 
+}
+
+/* 2. تنسيق M (تم تحويله إلى class) */
+.m-Style { 
+ 
+    color: #10eb38;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    /* إزالة 'text-align' و 'display: inline-block' لأن الحاوية تقوم بالتوسيط */
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+
+
+
+
+ text-align: center;
+    font-size: 30px;
+    color: #10eb38;
+    font-family: 'Arial';
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    position: relative; /* Added this to allow 'top' property */
+
+
+}
+
+/* 3. تنسيق H (تم تحويله إلى class) */
+.h-Style { 
+    
+    color: #f80101;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    /* إزالة 'text-align' و 'display: inline-block' لأن الحاوية تقوم بالتوسيط */
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    margin-top: -10px; /* لتقريب H من M */
+
+
+
+
+ text-align: center;
+    font-size: 20px;
+    color: #f80101;
+    font-family: 'Arial';
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    position: relative; /* Added this to allow 'top' property */
+
+
+
+}
+#i{
+    text-align: center;
+    font-size: 30px;
+    color: #00a6ff;
+    font-family: 'Arial';
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    position: relative; /* Added this to allow 'top' property */
+}
+
+/* * ملاحظة: يجب أيضاً إزالة التنسيقات القديمة #m و #h
+* أو تعديلها لاستخدام `display: block;`
+*/
 
 /* عندما يكون عرض الشاشة 768px أو أقل (للهواتف والأجهزة اللوحية الصغيرة) */
 @media screen and (max-width: 768px) {
@@ -268,9 +379,12 @@ document.addEventListener('DOMContentLoaded', () => {
     </h3> 
     
     
-    
     </header>
    <main>
+    <div class="center-wrapper">
+   <div class="m-Style">Mr.Mohamed Ibrahim</div>
+   <div class="h-Style">يرحب بكم</div>
+   </div>
     <div class="button-container">
     <a href="pdf.html" class="launch-button">
         PDFate 
@@ -280,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </main>
     
 <footer class="site-footer" >
-
+<h1 id="i">للدعم:</h1>
 
     <div style="margin-bottom: 20px;">
         <img src="logo.png" alt="Logo" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
