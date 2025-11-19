@@ -301,6 +301,39 @@ h1 span:nth-child(2) {
 
 
 }
+
+.a-Style { 
+    
+    color: #ff0000;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    /* إزالة 'text-align' و 'display: inline-block' لأن الحاوية تقوم بالتوسيط */
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    margin-top: -10px; /* لتقريب H من M */
+
+
+
+
+ text-align: center;
+    font-size: 40px;
+    
+    font-family: 'Arial';
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotateY(0deg);
+    transition: 1s;
+    animation: bounce 0.4s ease infinite alternate;
+    position: relative; /* Added this to allow 'top' property */
+    
+
+
+
+}
+
+
+
 #i{
     text-align: center;
     font-size: 30px;
@@ -313,6 +346,8 @@ h1 span:nth-child(2) {
     animation: bounce 0.4s ease infinite alternate;
     position: relative; /* Added this to allow 'top' property */
 }
+
+
 
 /* * ملاحظة: يجب أيضاً إزالة التنسيقات القديمة #m و #h
 * أو تعديلها لاستخدام `display: block;`
@@ -369,9 +404,10 @@ document.addEventListener('DOMContentLoaded', () => {
 </head>
 <body>
     <header>
-      <br>
-    
-</br>
+   
+
+
+
     <br><h1>
         <span>P</span>
         <span>h</span>
@@ -385,7 +421,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <h3 id="3">
         لا ابرح حتي ابلغ في
     </h3> 
+     
+
     
+
     
     </header>
    <main>
@@ -393,6 +432,14 @@ document.addEventListener('DOMContentLoaded', () => {
    <div class="m-Style">Mr.Mohamed Ibrahim</div>
    <div class="h-Style">يرحب بكم</div>
    </div>
+
+ <div class="center-wrapper">
+   
+   <div class="a-Style">لا تنسى الدعاء لاخواننا في غزه والسودان</div>
+   </div>
+
+
+
     <div class="button-container">
     <a href="pdf.html" class="launch-button">
         PDFate 
