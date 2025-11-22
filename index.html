@@ -97,6 +97,17 @@ h1 span:nth-child(2) {
     /* يمكنك إضافة مسافة علوية وسفلية إذا أردت */
     padding: 50px 0;
 }
+
+.button-exam {
+    width: 100%;
+    display: flex;
+    padding: 50px 0; 
+    justify-content: center;
+}
+
+
+
+
         /* التصميم الأساسي للزر */
 .launch-button {
     /* أساسيات المظهر */
@@ -107,6 +118,27 @@ h1 span:nth-child(2) {
     text-decoration: none;
     color: white; /* لون النص */
     background-color: #ff0904; /* لون الزر الأساسي (أزرق مثلاً) */
+    border: none;
+    border-radius: 8px;
+
+    /* إعداد الظل (لإعطاء تأثير العمق) */
+    box-shadow: 0 5px 0 0 #202020; /* ظل سفلي يعطي عمقاً */
+
+    /* إعدادات التحويل (Transitions) لضمان حركة سلسة */
+    transition: all 0.1s ease-out; /* فترة حركة قصيرة جداً */
+
+    /* لجعل الزر قابلاً للتحريك عبر transform */
+    transform: translateY(0);
+    cursor: pointer;
+}
+.exam-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white; /* لون النص */
+    background-color: #0e8fa9; /* لون الزر الأساسي (أزرق مثلاً) */
     border: none;
     border-radius: 8px;
 
@@ -304,13 +336,12 @@ h1 span:nth-child(2) {
 
 .a-Style { 
     
-    color: #ff0000;
+    color: #fafafa;
     font-family: 'Arial', sans-serif;
-    text-transform: uppercase;
+    
     /* إزالة 'text-align' و 'display: inline-block' لأن الحاوية تقوم بالتوسيط */
-    transform: rotateY(0deg);
-    transition: 1s;
-    animation: bounce 0.4s ease infinite alternate;
+    
+   
     margin-top: -10px; /* لتقريب H من M */
 
 
@@ -323,8 +354,8 @@ h1 span:nth-child(2) {
     text-transform: uppercase;
     display: inline-block;
     transform: rotateY(0deg);
-    transition: 1s;
-    animation: bounce 0.4s ease infinite alternate;
+    transition: 2s;
+    animation: bounce 0.6s ease infinite alternate;
     position: relative; /* Added this to allow 'top' property */
     
 
@@ -398,7 +429,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150); // 150 مللي ثانية كافية لرؤية الحركة
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('.exam-button');
 
+    button.addEventListener('click', function(event) {
+        event.preventDefault(); // منع الانتقال الفوري
+
+        const targetUrl = this.href;
+
+        // تطبيق تأثير الانتقال للأعلى (Launch)
+        this.style.transition = 'transform 0.1s ease-out, opacity 0.1s ease-out';
+        this.style.transform = 'translateY(-10px) scale(1.1)'; // قفزة للأعلى وتضخم
+        this.style.opacity = '0'; // يبدأ بالاختفاء
+
+        // بعد فترة قصيرة، يتم الانتقال إلى الصفحة الجديدة
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 150); // 150 مللي ثانية كافية لرؤية الحركة
+    });
+});
 
     </script>
 </head>
@@ -443,6 +492,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="button-container">
     <a href="pdf.html" class="launch-button">
         PDFate 
+</a>
+</div>
+  
+<div class="button-exam">
+    <a href="bag exam1.html" class="exam-button">
+        اختباراتي (🔒coming soon🔒) 
 </a>
 </div>
         
