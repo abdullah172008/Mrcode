@@ -486,6 +486,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+window.addEventListener("pageshow", function (event) {
+    var historyTraversal = event.persisted || 
+                         (typeof window.performance != "undefined" && 
+                          window.performance.navigation.type === 2);
+    if (historyTraversal) {
+        // إذا دخل المستخدم الصفحة عن طريق زر الرجوع، سيتم عمل ريفريش
+        window.location.reload();
+    }
+});
+
     </script>
 </head>
 <body>
