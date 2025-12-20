@@ -14,6 +14,35 @@
     
     
     <style>
+        /* الحاوية الخارجية التي تخفي النص عند خروجه */
+    .moving-text-container {
+        width: 100%;           /* تأخذ عرض الصفحة بالكامل */
+        overflow: hidden;      /* أهم سطر: يخفي النص لما يخرج عن الحدود */
+        background-color: #eeff00; /* لون خلفية الشريط (يمكنك تغييره) */
+        color: rgb(255, 0, 0);          /* لون الخط */
+        padding: 15px 0;       /* مساحة حول النص */
+        direction: rtl;        /* لضمان الترتيب العربي */
+        font-family: Arial, sans-serif;
+        font-size: 24px;       /* حجم الخط */
+    }
+
+    /* النص نفسه الذي سيتحرك */
+    .moving-text {
+        display: inline-block;
+        white-space: nowrap;   /* يمنع النص من النزول لسطر جديد */
+        will-change: transform;
+        animation: marquee 10s linear infinite; /* سرعة 15 ثانية وتكرار نهائي */
+    }
+
+    /* تعريف حركة "الأنيميشن" */
+    @keyframes marquee {
+        0% {
+            transform: translateX(0); /* يبدأ من خارج الشاشة يميناً */
+        }
+        100% {
+            transform: translateX(-100vw); /* يختفي خارج الشاشة يساراً */
+        }
+    }
         header {
             
     background-color:rgb(7, 154, 203) ;
@@ -29,6 +58,9 @@
             justify-content: center;
             height: 100px;
             overflow: hidden;
+        }
+        body{
+            min-height: 500px;
         }
         /*background-image: url("MRphy.png");*/
         span {
@@ -89,6 +121,8 @@ h1 span:nth-child(2) {
 /* CSS جديد لتوسيط الزر */
 /* ---------------------------------------------------- */
 .button-container {
+    position: relative;
+    top: -100px;
     /* عرض الحاوية بالكامل */
     width: 100%;
     /* لتمكين Flexbox */
@@ -104,6 +138,8 @@ h1 span:nth-child(2) {
     display: flex;
     padding: 50px 0; 
     justify-content: center;
+    position: relative;
+    bottom: 170px;
 }
 
 
@@ -478,7 +514,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     </header>
    <main>
+<div class="moving-text-container">
+<div class="moving-text"> 
+pdf تم فتح الكتب
+</div>
 
+
+</div>
 
 
     <div class="center-wrapper">
@@ -500,8 +542,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
   
 <div class="button-exam">
-    <a href="bag book1.html" class="exam-button">
-        MY book's(🔒coming soon🔒)
+    <a href="bag book.html" class="exam-button">
+        MY book's
 </a>
 </div>
         
