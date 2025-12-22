@@ -31,13 +31,13 @@
         display: inline-block;
         white-space: nowrap;   /* يمنع النص من النزول لسطر جديد */
         will-change: transform;
-        animation: marquee 10s linear infinite; /* سرعة 15 ثانية وتكرار نهائي */
+        animation: marquee 15s linear infinite; /* سرعة 15 ثانية وتكرار نهائي */
     }
 
     /* تعريف حركة "الأنيميشن" */
     @keyframes marquee {
         0% {
-            transform: translateX(0); /* يبدأ من خارج الشاشة يميناً */
+            transform: translateX(40vw); /* يبدأ من خارج الشاشة يميناً */
         }
         100% {
             transform: translateX(-100vw); /* يختفي خارج الشاشة يساراً */
