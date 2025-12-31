@@ -230,13 +230,16 @@ h1 span:nth-child(2) {
     /* لجعل الزر قابلاً للتحريك عبر transform */
     transform: translateY(0);
     cursor: pointer;
+    animation: alternate;
 }
 
 /* تأثير الـ Hover (عند مرور الماوس) */
 .launch-button:hover {
     background-color: #0056b3; /* أغمق قليلاً عند التمرير */
 }
-
+.exam-button:hover {
+    background-color: #778000; /* أغمق قليلاً عند التمرير */
+}
 /* تأثير الـ Active (عند الضغط الفعلي) */
 .launch-button:active {
     /* 1. الزر يغوص للأسفل */
