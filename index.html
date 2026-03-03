@@ -490,6 +490,63 @@ h1 span:nth-child(2) {
 
 
 
+/* الكود ده خاص بتصميم شاشة الصيانة */
+    #maintenanceOverlay {
+        display: none; /* ابدأ مخفياً */
+        position: fixed; /* يثبت في مكانه حتى لو عملت سكرول */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* خلفية سوداء شفافة (ضبابية) */
+        backdrop-filter: blur(5px); /* تأثير الضبابية (يحتاج دعم المتصفح) */
+        z-index: 9999; /* عشان يظهر فوق كل حاجة في الموقع */
+       /* لترتيب المحتوى في المنتصف */
+        justify-content: center; /* توسيط أفقي */
+        align-items: center; /* توسيط رأسي */
+        font-family: 'Arial', sans-serif; /* نوع خط مناسب */
+    }
+
+    #maintenanceBox {
+        background-color: #fff;
+        padding: 40px 50px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        max-width: 500px;
+        text-align: center;
+        color: #333;
+        animation: fadeIn 0.5s ease-out; /* حركة ظهور بسيطة */
+    }
+
+    #maintenanceBox h2 {
+        color: #007bff; /* لون أزرق جذاب للعناوين */
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    #maintenanceBox p {
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    #maintenanceBox .icon {
+        font-size: 3em;
+        color: #ffc107; /* لون أصفر للرمز */
+        margin-bottom: 20px;
+    }
+
+    /* حركة الظهور */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+
+
+
     </style>
     <script>   
 document.addEventListener('DOMContentLoaded', () => {
@@ -657,5 +714,35 @@ window.addEventListener("pageshow", function (event) {
     </div>
 
 </footer>
+
+<div id="maintenanceOverlay">
+    <div id="maintenanceBox">
+        <img src="MRphy.png" alt="" style="width: 100px; height: 100px;">
+        <h2>الموقع تحت الصيانة حالياً</h2>
+        <p>تواصل مع <span>Mr.Code</span> لحل المشكله</p>
+        
+        
+        
+        
+        <img src="logo.png" alt="شعار الموقع" style="margin-top: 20px; border-radius: 5px;width: 70px; height: 70px; ">
+         <div class="footer-contact-info" style="display: inline-block;">
+            <a href="tel:+01066801994" title="اتصل بي مباشرة" style="color: #000000;">
+                
+                +01066801994
+            </a>
+        </div>
+
+        <div class="social-links" style="display: inline-block;">
+            <a href="https://www.facebook.com/bdallhsbhyzayd?locale=ar_AR" ><img src="facebook.png" alt="facebook" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"></a>
+           
+           
+        </div>
+
+
+    </div>
+</div>
+
+
+
 </body>
 </html>
