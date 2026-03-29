@@ -62,6 +62,26 @@ header h1 {
     
     border-right: 5px solid #3498db; /* خط جانبي أزرق أنيق */
 }
+.pdf-card1 {
+    /* تجعل البطاقة كلها رابط، وتزيل تنسيقات الروابط الافتراضية */
+    text-decoration: none;
+    color: #2c3e50; 
+    display: block; 
+    padding: 30px;
+    border-radius: 15px; 
+    background-color:gold; 
+    
+    /* 💥 الإبهار الأول: ظل خفيف ونظيف للبداية */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    
+    /* 💥 الإبهار الثاني: الانتقال السلس للتأثيرات */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    border-right: 5px solid #3498db; /* خط جانبي أزرق أنيق */
+}
+
+
 #i{
     text-align: center;
     font-size: 30px;
@@ -80,8 +100,12 @@ header h1 {
     color: #3498db; 
     font-size: 1.4em;
 }
-
-.pdf-card p {
+.pdf-card h3 {
+    margin-top: 10px;
+    color: #3498db; 
+    font-size: 1.4em;
+}
+.pdf-card1 p {
     color: #7f8c8d;
     font-size: 0.95em;
     min-height: 50px; /* لضمان تساوي ارتفاع البطاقات تقريبًا */
@@ -93,7 +117,12 @@ header h1 {
     display: block;
     margin-bottom: 15px;
 }
-
+.pdf-card1 .icon {
+    font-size: 2em;
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 15px;
+}
 .view-link {
     display: inline-block;
     margin-top: 15px;
@@ -107,6 +136,19 @@ header h1 {
 
 /* 👑 التأثير المبهر عند مرور الماوس (The Baffling Hover Effect) 👑 */
 .pdf-card:hover {
+    /* 1. رفع وتكبير خفيف: يجعلها تبرز من الشاشة */
+    transform: translateY(-10px) scale(1.02); 
+    
+    /* 2. ظل كثيف ومتوهج: لإبهار المشاهد */
+    box-shadow: 0 15px 40px rgba(46, 204, 113, 0.4), /* توهج أخضر حول البطاقة */
+                0 6px 15px rgba(0, 0, 0, 0.15); /* ظل داكن قوي */
+    
+    border-right-color: #2ecc71; /* تغيير لون الخط الجانبي إلى لون التوهج */
+    cursor: pointer;
+}
+
+
+.pdf-card1:hover {
     /* 1. رفع وتكبير خفيف: يجعلها تبرز من الشاشة */
     transform: translateY(-10px) scale(1.02); 
     
@@ -298,7 +340,24 @@ header h1 {
             <h3>(الباب السابع) الليزر</h3>
             <p></p>
             <span class="view-link">عرض الملف الآن</span>
+        </a> 
+
+
+
+        <a href="pdf8.html" target="_blank" class="pdf-card">
+            <i class="icon">🧲⚡🧭🔌</i>
+            <h3>(الباب الثامن) الالكترونيات الحديثة</h3>
+            <p></p>
+            <span class="view-link">عرض الملف الآن</span>
         </a>
+ 
+        <a href="pdfimp.html" target="_blank" class="pdf-card1" >
+            <i class="icon">🧲⚡🧭🔌</i>
+            <h3>تريكات المنهج (مهمه جدا ‼❗)</h3>
+            <p></p>
+            <span class="view-link">عرض الملف الآن</span>
+        </a>
+
 
     </div>
 
