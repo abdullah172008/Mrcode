@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="مرحبا بك في منصه مستر محمد ابراهيم مدرس الفيزياء. المنصه. تفاعليه. يوجد بها شرح pdf وكتب pdf.">
 
+<canvas id="particles"></canvas>
 
     <link rel="icon" type="image/x-icon" href="MRphy.png">
 <link rel="icon" type="image/png" href="MRphy.png">
@@ -14,35 +15,36 @@
     
     
     <style>
+        #particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
         /* الحاوية الخارجية التي تخفي النص عند خروجه */
-    .moving-text-container {
-        width: 100%;           /* تأخذ عرض الصفحة بالكامل */
-        overflow: hidden;      /* أهم سطر: يخفي النص لما يخرج عن الحدود */
-        background-color: #eeff00; /* لون خلفية الشريط (يمكنك تغييره) */
-        color: rgb(255, 0, 0);          /* لون الخط */
-        padding: 15px 0;       /* مساحة حول النص */
-        direction: rtl;        /* لضمان الترتيب العربي */
-        font-family: Arial, sans-serif;
-        font-size: 24px;       /* حجم الخط */
-    }
+    
+    /* شكل الشريط */
+.moving-text-container {
+    background: linear-gradient(90deg, #00d0ff, #00ff2a);
+    border-radius: 10px;
+    margin: 20px;
+    overflow: hidden;
+    padding: 10px;
+}
 
-    /* النص نفسه الذي سيتحرك */
-    .moving-text {
-        display: inline-block;
-        white-space: nowrap;   /* يمنع النص من النزول لسطر جديد */
-        will-change: transform;
-        animation: marquee 15s linear infinite; /* سرعة 15 ثانية وتكرار نهائي */
-    }
+.moving-text {
+    white-space: nowrap;
+    animation: move 24s linear infinite;
+}
 
-    /* تعريف حركة "الأنيميشن" */
-    @keyframes marquee {
-        0% {
-            transform: translateX(40vw); /* يبدأ من خارج الشاشة يميناً */
-        }
-        100% {
-            transform: translateX(-100vw); /* يختفي خارج الشاشة يساراً */
-        }
-    }
+@keyframes move {
+    from {transform: translateX(100%);}
+    to {transform: translateX(-100%);}
+}
+
         header {
             
     background-color:rgb(7, 154, 203) ;
@@ -105,7 +107,7 @@ h1 span:nth-child(2) {
             position: relative; /* Added this to allow 'top' property */
         }
         main {
-            
+             align-items: center;
            background-image: url("MRphy.png");width:100%; height:auto; align-items: center;
            background-size: cover;
               background-position: center;
@@ -543,10 +545,91 @@ h1 span:nth-child(2) {
         from { opacity: 0; transform: translateY(-20px); }
         to { opacity: 1; transform: translateY(0); }
     }
+.launch-button,
+.exam-button,
+.homework-button {
+    transition: 0.3s;
+}
+
+.launch-button:hover,
+.exam-button:hover,
+.homework-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ffff,
+                0 0 40px #00ffff;
+}
+.launch-button::before {
+    content: "📖 ";
+    font-size: 20px;
+}
+.exam-button::before {
+    content: "📚 ";
+}
+.homework-button::before {
+    content: "✏️ ";
+}
 
 
+.btn-wrapper {
+            position: relative;
+            margin: 20px 0;
+            width: 250px;
+            height: 70px;
+            overflow: hidden; /* عشان الأيقونات ما تخرجش بره الزرار */
+            border-radius: 8px;
+            box-shadow: 0 5px 0 0 #202020;
+            transition: all 0.1s;
+            margin: 20px auto; /* لتوسيط الزرار في الصفحة */
+        }
 
+        .main-button {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2; /* النص فوق الأيقونات */
+            background: transparent;
+        }
 
+        /* الأيقونات الطائرة خلف النص */
+        .floating-icon {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            z-index: 1;
+            animation: float-around 4s infinite linear;
+            color: rgba(255,255,255,0.4);
+        }
+
+        @keyframes float-around {
+            0% { transform: translate(0, 80px) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translate(40px, -80px) rotate(360deg); opacity: 0; }
+        }
+
+        /* ألوان الأزرار الأصلية */
+        .bg-pdf { background-color: #ff0904; }
+        .bg-books { background-color: #0e8fa9; }
+        .bg-homework { background-color: #04ff79; }
+
+        .btn-wrapper:active {
+            transform: translateY(5px);
+            box-shadow: 0 0px 0 0 #202020;
+        }
+#subtitle-3 {
+            font-size: 30px;
+            color: #000000;
+            font-family: 'Arial';
+            animation: bounce 0.4s ease infinite alternate;
+            position: relative;
+        }
+       
     </style>
     <script>   
 document.addEventListener('DOMContentLoaded', () => {
@@ -609,6 +692,56 @@ window.addEventListener("pageshow", function (event) {
   gtag('js', new Date());
 
   gtag('config', 'G-YN2C7B1G41');
+
+</script>
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3;
+        this.speedX = Math.random() - 0.5;
+        this.speedY = Math.random() - 0.5;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+
+    draw() {
+        ctx.fillStyle = "#00ffff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function init() {
+    for (let i = 0; i < 100; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
 </script>
 
 
@@ -664,24 +797,20 @@ window.addEventListener("pageshow", function (event) {
 
 
 
-    <div class="button-container">
-    <a href="pdf.html" class="launch-button">
-        PDFate 
-</a>
-</div>
-  
-<div class="button-exam">
-    <a href="bag book.html" class="exam-button">
-        MY book's
-</a>
-</div>
-        
-<div class="homework">
-    <a href="homework.html" class="homework-button">
-    HomeWork
-</a>
-</div>
+  <div class="btn-wrapper bg-pdf">
+        <span class="floating-icon" style="left:10%; animation-delay:0s;">⚛️</span>
+        <span class="floating-icon" style="left:50%; animation-delay:1s;">📄</span>
+        <span class="floating-icon" style="left:80%; animation-delay:2s;">⚡</span>
+        <a href="pdf.html" class="main-button">PDFate</a>
+    </div>
 
+    <div class="btn-wrapper bg-books">
+        <span class="floating-icon" style="left:20%; animation-delay:0.5s;">📚</span>
+        <span class="floating-icon" style="left:60%; animation-delay:1.5s;">🔬</span>
+        <a href="bag book.html" class="main-button">MY book's</a>
+    </div>
+
+  
     </main>
     
 <footer class="site-footer" >
