@@ -241,7 +241,71 @@ color: #00c4fa;
                 🔍 بحث
             </button>
         </form>*/
+        .magic-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* الأشكال اللي هتتحقن بالجاوا سكريبت */
+.flying-shape {
+    position: absolute;
+    bottom: -50px;
+    opacity: 0;
+    font-size: 20px;
+    z-index: 1;
+    pointer-events: none; /* عشان ما تعطلش الضغط على الزرار */
+    animation: flyUp 6s infinite linear;
+}
+
+@keyframes flyUp {
+    0% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 0; 
+    }
+    20% { 
+        opacity: 0.6; 
+    }
+    80% { 
+        opacity: 0.6; 
+    }
+    100% { 
+        /* غيرنا الرقم لـ -200px عشان يطير لمسافة أبعد فوق النص */
+        transform: translateY(-300px) rotate(360deg); 
+        opacity: 0; 
+    }
+}
+
     </style>
+     <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. حدد كل الروابط اللي جوه المين (تقدر تغير السلكتور براحتك)
+    const buttons = document.querySelectorAll("main a");
+
+    // 2. قائمة الرموز اللي عايزها تظهر (تقدر تزود رموز فيزياء هنا)
+    const icons = ["⚛️", "⚡", "🧪", "📚", "🔬", "📝","🕋","🧕","👨‍🎓","📺","📱","🔦","📡","🤲","👨‍⚕️","🔌"];
+
+    buttons.forEach(btn => {
+        // إضافة الكلاس السحري للزرار أوتوماتيكياً
+        btn.classList.add("magic-container");
+
+        // 3. حقن 3 أشكال عشوائية جوه كل زرار
+        for (let i = 0; i < 3; i++) {
+            let span = document.createElement("span");
+            span.className = "flying-shape";
+            
+            // اختيار رمز عشوائي من القائمة
+            span.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            
+            // توزيع عشوائي لأماكن البداية والوقت عشان ما يبقوش زي بعض
+            span.style.left = Math.random() * 80 + 10 + "%"; // مكان العرض
+            span.style.animationDelay = Math.random() * 2 + "s"; // تأخير البداية
+            span.style.fontSize = (Math.random() * 10 + 15) + "px"; // حجم عشوائي
+            
+            btn.appendChild(span);
+        }
+    });
+});
+</script>
 </head>
 <body>
     
@@ -304,7 +368,13 @@ color: #00c4fa;
             <span class="view-link">عرض PDF الآن</span>
         </a>
        
-
+        <a href="https://drive.google.com/file/d/18ePtT0a4YQRjNKBYdymU7o8ijmFTV2Ij/view?usp=drive_link" target="_blank" class="pdf-card">
+            <i class="icon">📚👨‍⚕️🕌👨‍🎓📚</i>
+            <h1 id="ex">الامتحان مراجعه نهائيه</h1>
+            
+            
+            <span class="view-link">عرض PDF الآن</span>
+        </a>
     </div>
 
     </main>
